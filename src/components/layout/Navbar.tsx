@@ -1,15 +1,14 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { Search, MapPin, User, Menu, X } from 'lucide-react';
+import { Search, MapPin, User, Menu, X, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import useMobile from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
   const { toast } = useToast();
   
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +17,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchBarOpen, setSearchBarOpen] = useState(false);
   
-  // Check if on homepage
   const isHomePage = location.pathname === '/';
   
   useEffect(() => {
@@ -38,18 +36,15 @@ const Navbar = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create search params
     const searchParams = new URLSearchParams();
     if (searchLocation) searchParams.set('location', searchLocation);
     if (guests) searchParams.set('guests', guests);
     
-    // Redirect to search page with params
     navigate({
       pathname: '/search',
       search: searchParams.toString()
     });
     
-    // Close search bar if on mobile
     if (isMobile) {
       setSearchBarOpen(false);
     }
@@ -71,7 +66,6 @@ const Navbar = () => {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <svg 
@@ -91,7 +85,6 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* Search bar - Desktop */}
           <div className={`hidden md:block relative z-10 ${isHomePage ? 'flex-1 max-w-2xl mx-8' : 'ml-4'}`}>
             <form onSubmit={handleSearch} className="relative">
               <div className="flex items-center border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-shadow">
@@ -135,7 +128,6 @@ const Navbar = () => {
             </form>
           </div>
           
-          {/* Mobile search button */}
           <div className="md:hidden flex-1 flex justify-center">
             <button 
               onClick={() => setSearchBarOpen(!searchBarOpen)}
@@ -146,7 +138,6 @@ const Navbar = () => {
             </button>
           </div>
           
-          {/* User menu */}
           <div className="relative flex items-center">
             <Button 
               variant="outline"
@@ -167,7 +158,7 @@ const Navbar = () => {
                 stroke="currentColor"
                 strokeWidth="2"
               >
-                <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
               </svg>
             </Button>
             
@@ -247,7 +238,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile search bar */}
       {isMobile && searchBarOpen && (
         <div className="bg-white p-4 shadow-md animate-fade-in">
           <form onSubmit={handleSearch} className="space-y-4">
