@@ -156,7 +156,7 @@ export const properties: PropertyListing[] = [
         userName: 'Jennifer',
         userImage: 'https://randomuser.me/api/portraits/women/12.jpg',
         rating: 5,
-        comment: 'This place is absolute paradise! The views are breathtaking and the villa itself is stunning. Every detail has been carefully thought out. We especially loved the infinity pool overlooking the ocean. Can't wait to come back!',
+        comment: "This place is absolute paradise! The views are breathtaking and the villa itself is stunning. Every detail has been carefully thought out. We especially loved the infinity pool overlooking the ocean. Can't wait to come back!",
         date: '2023-07-15'
       },
       {
@@ -165,7 +165,7 @@ export const properties: PropertyListing[] = [
         userName: 'Michael',
         userImage: 'https://randomuser.me/api/portraits/men/32.jpg',
         rating: 5,
-        comment: 'We had the most amazing stay at this beautiful villa. The location is perfect, the house is immaculate, and Alexandra was a wonderful host. The private beach access was a huge plus!',
+        comment: "We had the most amazing stay at this beautiful villa. The location is perfect, the house is immaculate, and Alexandra was a wonderful host. The private beach access was a huge plus!",
         date: '2023-06-22'
       }
     ],
@@ -229,7 +229,7 @@ export const properties: PropertyListing[] = [
         userName: 'Sarah',
         userImage: 'https://randomuser.me/api/portraits/women/22.jpg',
         rating: 5,
-        comment: 'This apartment is a design lover's dream! So stylish yet comfortable. The location couldn't be better - we walked everywhere. Magnus provided great local tips too!',
+        comment: "This apartment is a design lover's dream! So stylish yet comfortable. The location couldn't be better - we walked everywhere. Magnus provided great local tips too!",
         date: '2023-07-05'
       }
     ]
@@ -294,7 +294,7 @@ export const properties: PropertyListing[] = [
         userName: 'David',
         userImage: 'https://randomuser.me/api/portraits/men/67.jpg',
         rating: 5,
-        comment: 'This cabin exceeded our expectations! So peaceful and beautiful. We loved relaxing in the hot tub after a day of hiking. The cabin is incredibly well-maintained and has everything you need.',
+        comment: "This cabin exceeded our expectations! So peaceful and beautiful. We loved relaxing in the hot tub after a day of hiking. The cabin is incredibly well-maintained and has everything you need.",
         date: '2023-06-18'
       }
     ]
@@ -358,7 +358,7 @@ export const properties: PropertyListing[] = [
         userName: 'Emma',
         userImage: 'https://randomuser.me/api/portraits/women/33.jpg',
         rating: 5,
-        comment: 'Jessica's loft is absolutely gorgeous! The space is beautifully designed and the views are incredible. The location is perfect for exploring the city. Would definitely stay here again!',
+        comment: "Jessica's loft is absolutely gorgeous! The space is beautifully designed and the views are incredible. The location is perfect for exploring the city. Would definitely stay here again!",
         date: '2023-07-10'
       }
     ]
@@ -423,7 +423,7 @@ export const properties: PropertyListing[] = [
         userName: 'Thomas',
         userImage: 'https://randomuser.me/api/portraits/men/19.jpg',
         rating: 5,
-        comment: 'This townhouse is a gem in the heart of Rome! The architecture is stunning and Marco has done an amazing job preserving the historic elements while providing all modern comforts. The location couldn't be better.',
+        comment: "This townhouse is a gem in the heart of Rome! The architecture is stunning and Marco has done an amazing job preserving the historic elements while providing all modern comforts. The location couldn't be better.",
         date: '2023-07-02'
       }
     ]
@@ -490,7 +490,7 @@ export const properties: PropertyListing[] = [
         userName: 'Sophia',
         userImage: 'https://randomuser.me/api/portraits/women/65.jpg',
         rating: 5,
-        comment: 'We had the most magical stay at this beach house! Falling asleep to the sound of waves and waking up to that view was incredible. The house is beautifully designed and had everything we needed. Can't wait to return!',
+        comment: "We had the most magical stay at this beach house! Falling asleep to the sound of waves and waking up to that view was incredible. The house is beautifully designed and had everything we needed. Can't wait to return!",
         date: '2023-06-28'
       }
     ],
@@ -556,7 +556,7 @@ export const properties: PropertyListing[] = [
         userName: 'William',
         userImage: 'https://randomuser.me/api/portraits/men/7.jpg',
         rating: 5,
-        comment: 'This private island paradise exceeded all expectations. It's truly a once-in-a-lifetime experience. The staff, the accommodations, and the setting are all extraordinary. Worth every penny for a special occasion.',
+        comment: "This private island paradise exceeded all expectations. It's truly a once-in-a-lifetime experience. The staff, the accommodations, and the setting are all extraordinary. Worth every penny for a special occasion.",
         date: '2023-05-15'
       }
     ],
@@ -622,7 +622,7 @@ export const properties: PropertyListing[] = [
         userName: 'James',
         userImage: 'https://randomuser.me/api/portraits/men/2.jpg',
         rating: 5,
-        comment: 'Charlotte's penthouse is spectacular! The interior design is magazine-worthy and the rooftop terrace offers the most amazing views of London. The location is perfect - close to everything. Highly recommend!',
+        comment: "Charlotte's penthouse is spectacular! The interior design is magazine-worthy and the rooftop terrace offers the most amazing views of London. The location is perfect - close to everything. Highly recommend!",
         date: '2023-06-10'
       }
     ]
