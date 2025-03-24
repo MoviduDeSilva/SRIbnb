@@ -1,7 +1,9 @@
 
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, Award, Share, Heart, User, Users, Calendar, Home, ShowerHead, Bed, Utensils, Wifi, Maximize } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import PropertyGallery from '@/components/PropertyGallery';
@@ -9,8 +11,13 @@ import { properties } from '@/lib/data';
 
 const PropertyDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [guestCount, setGuestCount] = useState(1);
+  const [checkInDate, setCheckInDate] = useState<string>('');
+  const [checkOutDate, setCheckOutDate] = useState<string>('');
   
   // Find the property based on id param
   const property = properties.find(p => p.id === id);
@@ -36,6 +43,30 @@ const PropertyDetail = () => {
       </div>
     );
   }
+
+  const handleReserve = () => {
+    if (!checkInDate || !checkOutDate) {
+      toast({
+        title: "Please select dates",
+        description: "You need to select check-in and check-out dates to continue.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    navigate(`/booking/${id}`);
+  };
+  
+  const handleSaveProperty = () => {
+    setIsFavorite(!isFavorite);
+    
+    toast({
+      title: isFavorite ? "Removed from wishlist" : "Saved to wishlist",
+      description: isFavorite 
+        ? `${property.title} has been removed from your wishlist.` 
+        : `${property.title} has been added to your wishlist.`,
+    });
+  };
 
   // Format amenities for display
   const displayAmenities = () => {
@@ -100,7 +131,7 @@ const PropertyDetail = () => {
                 </button>
                 <button 
                   className="flex items-center hover:text-airbnb-primary transition-colors"
-                  onClick={() => setIsFavorite(!isFavorite)}
+                  onClick={handleSaveProperty}
                 >
                   <Heart 
                     size={18} 
@@ -198,7 +229,7 @@ const PropertyDetail = () => {
               <div className="py-8 border-b">
                 <h2 className="text-xl font-semibold mb-6">Where you'll sleep</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {Array.from({ length: property.capacity.bedrooms }).map((_, index) => (
+                  {Array.from({ length: property.capacity.bedrooms }, (_, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg p-6">
                       <Bed size={24} className="mb-3" />
                       <h3 className="font-medium mb-1">Bedroom {index + 1}</h3>
@@ -229,11 +260,50 @@ const PropertyDetail = () => {
                 <h2 className="text-xl font-semibold mb-2">Select check-in date</h2>
                 <p className="text-airbnb-light mb-6">Add your travel dates for exact pricing</p>
                 
-                <div className="bg-gray-50 rounded-lg p-6 text-center">
-                  <Calendar size={48} className="mx-auto mb-4 text-airbnb-light" />
-                  <p className="text-airbnb-light">
-                    Calendar feature coming soon. Please use the booking form to check availability.
-                  </p>
+                <div className="bg-gray-50 rounded-lg p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Check-in
+                      </label>
+                      <input 
+                        type="date" 
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                        value={checkInDate}
+                        onChange={(e) => setCheckInDate(e.target.value)}
+                        min={new Date().toISOString().split('T')[0]}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Check-out
+                      </label>
+                      <input 
+                        type="date" 
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                        value={checkOutDate}
+                        onChange={(e) => setCheckOutDate(e.target.value)}
+                        min={checkInDate || new Date().toISOString().split('T')[0]}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Guests
+                    </label>
+                    <select
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                      value={guestCount}
+                      onChange={(e) => setGuestCount(parseInt(e.target.value))}
+                    >
+                      {Array.from({ length: property.capacity.guests }, (_, i) => i + 1).map(num => (
+                        <option key={num} value={num}>
+                          {num} guest{num !== 1 ? 's' : ''}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -258,17 +328,17 @@ const PropertyDetail = () => {
                   <div className="grid grid-cols-2 divide-x divide-gray-300">
                     <div className="p-3">
                       <p className="text-xs font-bold mb-1">CHECK-IN</p>
-                      <p className="text-sm">Add date</p>
+                      <p className="text-sm">{checkInDate ? new Date(checkInDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Add date'}</p>
                     </div>
                     <div className="p-3">
                       <p className="text-xs font-bold mb-1">CHECKOUT</p>
-                      <p className="text-sm">Add date</p>
+                      <p className="text-sm">{checkOutDate ? new Date(checkOutDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Add date'}</p>
                     </div>
                   </div>
                   <div className="border-t border-gray-300 p-3">
                     <p className="text-xs font-bold mb-1">GUESTS</p>
                     <div className="flex justify-between items-center">
-                      <p className="text-sm">1 guest</p>
+                      <p className="text-sm">{guestCount} guest{guestCount !== 1 ? 's' : ''}</p>
                       <svg 
                         viewBox="0 0 32 32" 
                         xmlns="http://www.w3.org/2000/svg" 
@@ -283,33 +353,38 @@ const PropertyDetail = () => {
                   </div>
                 </div>
                 
-                <button className="w-full bg-gradient-to-r from-[#E61E4D] to-[#BD1E59] text-white text-center py-3 rounded-lg font-medium mb-4 hover:from-[#D31C46] hover:to-[#A91C54] transition-all">
+                <Button
+                  className="w-full bg-gradient-to-r from-[#E61E4D] to-[#BD1E59] text-white text-center py-3 rounded-lg font-medium mb-4 hover:from-[#D31C46] hover:to-[#A91C54] transition-all"
+                  onClick={handleReserve}
+                >
                   Reserve
-                </button>
+                </Button>
                 
                 <p className="text-center text-sm mb-6">You won't be charged yet</p>
                 
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="underline">${property.price} x 5 nights</span>
-                    <span>${property.price * 5}</span>
+                {checkInDate && checkOutDate && (
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="underline">${property.price} x 5 nights</span>
+                      <span>${property.price * 5}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="underline">Cleaning fee</span>
+                      <span>$150</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="underline">Service fee</span>
+                      <span>$120</span>
+                    </div>
+                  
+                    <div className="border-t border-gray-300 pt-4 mt-4">
+                      <div className="flex justify-between font-semibold">
+                        <span>Total before taxes</span>
+                        <span>${property.price * 5 + 150 + 120}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="underline">Cleaning fee</span>
-                    <span>$150</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="underline">Service fee</span>
-                    <span>$120</span>
-                  </div>
-                </div>
-                
-                <div className="border-t border-gray-300 pt-4 mt-4">
-                  <div className="flex justify-between font-semibold">
-                    <span>Total before taxes</span>
-                    <span>${property.price * 5 + 150 + 120}</span>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -432,7 +507,7 @@ const PropertyDetail = () => {
               </div>
             </div>
             <p className="text-airbnb-secondary leading-relaxed mb-3">
-              The neighborhood is known for its {property.location.city === 'Malibu' ? 'beautiful beaches and celebrity homes' : 'charming atmosphere and local attractions'}.
+              The neighborhood is known for its {property.location.city === 'Colombo' ? 'vibrant atmosphere and cultural landmarks' : 'natural beauty and local attractions'}.
             </p>
             <button className="underline font-medium">Show more</button>
           </div>
@@ -481,9 +556,9 @@ const PropertyDetail = () => {
                   I'm available to assist with any questions or needs you may have during your stay.
                 </p>
                 
-                <button className="border border-airbnb-secondary rounded-lg px-6 py-3 font-medium hover:bg-gray-50 transition-colors">
+                <Button variant="outline" className="border border-airbnb-secondary px-6 py-3 font-medium hover:bg-gray-50 transition-colors">
                   Contact Host
-                </button>
+                </Button>
               </div>
             </div>
           </div>

@@ -95,30 +95,30 @@ export interface PropertyListing {
 export const properties: PropertyListing[] = [
   {
     id: '1',
-    title: 'Luxury Beachfront Villa with Infinity Pool',
-    description: 'Experience the ultimate luxury beachfront getaway with panoramic ocean views. This stunning villa features a private infinity pool, direct beach access, and spacious indoor-outdoor living areas perfect for relaxation and entertainment.',
+    title: 'Luxury Villa with Infinity Pool in Unawatuna',
+    description: 'Experience tropical paradise in this stunning villa with panoramic ocean views. This property features a private infinity pool, lush gardens, and is just a short walk to the pristine beaches of Unawatuna. Perfect for relaxation and experiencing the natural beauty of Sri Lanka\'s southern coast.',
     type: 'villa',
     location: {
-      city: 'Malibu',
-      country: 'United States',
-      lat: 34.025922,
-      lng: -118.779757,
+      city: 'Unawatuna',
+      country: 'Sri Lanka',
+      lat: 6.0174,
+      lng: 80.2489,
     },
     host: {
       id: 'h1',
-      name: 'Alexandra',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg',
-      joinDate: '2018-03-15',
+      name: 'Chaminda',
+      image: 'https://randomuser.me/api/portraits/men/43.jpg',
+      joinDate: '2019-05-15',
       isSuperhost: true,
     },
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80'
+      'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1584132869994-873f9363a562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
     ],
-    price: 1250,
+    price: 175,
     currency: 'USD',
     amenities: [
       'wifi', 
@@ -134,14 +134,14 @@ export const properties: PropertyListing[] = [
       'hot-tub'
     ],
     capacity: {
-      guests: 10,
-      bedrooms: 5,
-      beds: 7,
-      baths: 4.5
+      guests: 8,
+      bedrooms: 4,
+      beds: 5,
+      baths: 3.5
     },
     ratings: {
       average: 4.97,
-      count: 128,
+      count: 86,
       cleanliness: 5.0,
       accuracy: 4.9,
       communication: 5.0,
@@ -153,49 +153,49 @@ export const properties: PropertyListing[] = [
       {
         id: 'r1',
         userId: 'u1',
-        userName: 'Jennifer',
-        userImage: 'https://randomuser.me/api/portraits/women/12.jpg',
+        userName: 'Michael',
+        userImage: 'https://randomuser.me/api/portraits/men/32.jpg',
         rating: 5,
-        comment: "This place is absolute paradise! The views are breathtaking and the villa itself is stunning. Every detail has been carefully thought out. We especially loved the infinity pool overlooking the ocean. Can't wait to come back!",
-        date: '2023-07-15'
+        comment: 'This villa is absolute paradise! The views are breathtaking and the property itself is stunning. Every detail has been carefully thought out. We especially loved the infinity pool overlooking the ocean. Can\'t wait to come back to Sri Lanka!',
+        date: '2023-09-15'
       },
       {
         id: 'r2',
         userId: 'u2',
-        userName: 'Michael',
-        userImage: 'https://randomuser.me/api/portraits/men/32.jpg',
+        userName: 'Sarah',
+        userImage: 'https://randomuser.me/api/portraits/women/22.jpg',
         rating: 5,
-        comment: "We had the most amazing stay at this beautiful villa. The location is perfect, the house is immaculate, and Alexandra was a wonderful host. The private beach access was a huge plus!",
-        date: '2023-06-22'
+        comment: 'We had the most amazing stay at this beautiful villa. The location is perfect, the house is immaculate, and Chaminda was a wonderful host. The beach access was a huge plus!',
+        date: '2023-08-22'
       }
     ],
     featured: true
   },
   {
     id: '2',
-    title: 'Modern Scandinavian Apartment in City Center',
-    description: 'Stylish and minimalist Scandinavian-inspired apartment in the heart of the city. Walking distance to top restaurants, shops, and cultural attractions. Features high-end appliances, designer furniture, and a private balcony with city views.',
+    title: 'Colonial Heritage Apartment in Colombo',
+    description: 'Stylish apartment in the heart of Colombo with beautiful colonial architecture. Walking distance to top restaurants, shops, and cultural attractions. Features modern amenities while preserving the charm of Sri Lanka\'s rich heritage.',
     type: 'apartment',
     location: {
-      city: 'Copenhagen',
-      country: 'Denmark',
-      lat: 55.676098,
-      lng: 12.568337,
+      city: 'Colombo',
+      country: 'Sri Lanka',
+      lat: 6.9271,
+      lng: 79.8612,
     },
     host: {
       id: 'h2',
-      name: 'Magnus',
-      image: 'https://randomuser.me/api/portraits/men/45.jpg',
-      joinDate: '2019-05-10',
+      name: 'Lakshmi',
+      image: 'https://randomuser.me/api/portraits/women/45.jpg',
+      joinDate: '2020-03-10',
       isSuperhost: true,
     },
     images: [
-      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2158&q=80',
-      'https://images.unsplash.com/photo-1589834390005-5d4fb9bf3d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+      'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
+      'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80',
-      'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
+      'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ],
-    price: 220,
+    price: 85,
     currency: 'USD',
     amenities: [
       'wifi', 
@@ -207,14 +207,14 @@ export const properties: PropertyListing[] = [
       'tv'
     ],
     capacity: {
-      guests: 2,
+      guests: 3,
       bedrooms: 1,
-      beds: 1,
+      beds: 2,
       baths: 1
     },
     ratings: {
       average: 4.92,
-      count: 98,
+      count: 65,
       cleanliness: 5.0,
       accuracy: 4.9,
       communication: 4.8,
@@ -226,157 +226,153 @@ export const properties: PropertyListing[] = [
       {
         id: 'r3',
         userId: 'u3',
-        userName: 'Sarah',
-        userImage: 'https://randomuser.me/api/portraits/women/22.jpg',
+        userName: 'David',
+        userImage: 'https://randomuser.me/api/portraits/men/22.jpg',
         rating: 5,
-        comment: "This apartment is a design lover's dream! So stylish yet comfortable. The location couldn't be better - we walked everywhere. Magnus provided great local tips too!",
+        comment: 'This apartment is a design lover\'s dream! So stylish yet comfortable. The location couldn\'t be better - we walked to all the best spots in Colombo. Lakshmi provided great local tips too!',
         date: '2023-07-05'
       }
     ]
   },
   {
     id: '3',
-    title: 'Rustic Mountain Cabin with Hot Tub',
-    description: 'Escape to this cozy mountain retreat surrounded by pine forests. This authentic log cabin features a private hot tub, stone fireplace, and wraparound deck with mountain views. Perfect for a romantic getaway or small family vacation.',
+    title: 'Mountain Retreat in Ella with Spectacular Views',
+    description: 'Escape to this cozy mountain retreat surrounded by tea plantations and breathtaking views. This authentic bungalow features a private terrace, comfortable rooms, and is perfectly positioned to watch the sunrise over Ella Gap.',
     type: 'cabin',
     location: {
-      city: 'Aspen',
-      country: 'United States',
-      lat: 39.191097,
-      lng: -106.817535,
+      city: 'Ella',
+      country: 'Sri Lanka',
+      lat: 6.8667,
+      lng: 81.0466,
     },
     host: {
       id: 'h3',
-      name: 'Robert',
+      name: 'Prasad',
       image: 'https://randomuser.me/api/portraits/men/46.jpg',
-      joinDate: '2017-09-23',
+      joinDate: '2018-09-23',
       isSuperhost: true,
     },
     images: [
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1544358650-5e96414db153?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ],
-    price: 375,
+    price: 95,
     currency: 'USD',
     amenities: [
       'wifi', 
       'kitchen', 
       'indoor-fireplace', 
-      'hot-tub', 
       'free-parking',
       'heating',
       'tv',
-      'washer',
-      'dryer'
+      'breakfast'
     ],
     capacity: {
       guests: 4,
       bedrooms: 2,
       beds: 2,
-      baths: 2
+      baths: 1
     },
     ratings: {
-      average: 4.89,
+      average: 4.95,
       count: 75,
       cleanliness: 4.9,
       accuracy: 4.8,
       communication: 5.0,
-      location: 4.9,
+      location: 5.0,
       checkIn: 4.8,
-      value: 4.8
+      value: 5.0
     },
     reviews: [
       {
         id: 'r4',
         userId: 'u4',
-        userName: 'David',
-        userImage: 'https://randomuser.me/api/portraits/men/67.jpg',
+        userName: 'Emma',
+        userImage: 'https://randomuser.me/api/portraits/women/67.jpg',
         rating: 5,
-        comment: "This cabin exceeded our expectations! So peaceful and beautiful. We loved relaxing in the hot tub after a day of hiking. The cabin is incredibly well-maintained and has everything you need.",
-        date: '2023-06-18'
+        comment: 'This cabin exceeded our expectations! So peaceful and beautiful. The views of Ella Gap are incredible at sunrise. Prasad was extremely helpful with arranging local activities and the breakfast was delicious!',
+        date: '2023-10-18'
       }
     ]
   },
   {
     id: '4',
-    title: 'Sleek Downtown Loft with City Views',
-    description: 'Contemporary industrial-style loft in a converted historic building. Features exposed brick walls, high ceilings, and floor-to-ceiling windows with spectacular city views. Steps away from trendy restaurants, bars, and galleries.',
-    type: 'loft',
+    title: 'Beachfront Bungalow in Mirissa',
+    description: 'Wake up to the sound of waves in this charming beachfront bungalow. Located directly on Mirissa Beach, this property offers simple yet comfortable accommodation with unbeatable ocean views and easy access to whale watching, surfing, and local cuisine.',
+    type: 'beachfront',
     location: {
-      city: 'New York',
-      country: 'United States',
-      lat: 40.712776,
-      lng: -74.005974,
+      city: 'Mirissa',
+      country: 'Sri Lanka',
+      lat: 5.9483,
+      lng: 80.4716,
     },
     host: {
       id: 'h4',
-      name: 'Jessica',
+      name: 'Thilini',
       image: 'https://randomuser.me/api/portraits/women/44.jpg',
       joinDate: '2020-01-05',
-      isSuperhost: true,
+      isSuperhost: false,
     },
     images: [
-      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1680&q=80',
-      'https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1594056141808-afbf95d88b13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80',
     ],
-    price: 299,
+    price: 75,
     currency: 'USD',
     amenities: [
       'wifi', 
-      'kitchen', 
       'air-conditioning', 
-      'heating',
-      'washer',
-      'dryer',
-      'dedicated-workspace',
-      'tv'
+      'beachfront', 
+      'waterfront',
+      'breakfast',
+      'free-parking'
     ],
     capacity: {
-      guests: 3,
+      guests: 2,
       bedrooms: 1,
-      beds: 2,
+      beds: 1,
       baths: 1
     },
     ratings: {
       average: 4.85,
-      count: 112,
-      cleanliness: 4.9,
+      count: 45,
+      cleanliness: 4.7,
       accuracy: 4.8,
       communication: 4.9,
       location: 5.0,
       checkIn: 4.7,
-      value: 4.7
+      value: 4.9
     },
     reviews: [
       {
         id: 'r5',
         userId: 'u5',
-        userName: 'Emma',
-        userImage: 'https://randomuser.me/api/portraits/women/33.jpg',
+        userName: 'John',
+        userImage: 'https://randomuser.me/api/portraits/men/33.jpg',
         rating: 5,
-        comment: "Jessica's loft is absolutely gorgeous! The space is beautifully designed and the views are incredible. The location is perfect for exploring the city. Would definitely stay here again!",
-        date: '2023-07-10'
+        comment: 'The location of this bungalow is simply unbeatable! Falling asleep to the sound of waves and waking up with the ocean right at your doorstep is magical. Simple accommodation but absolutely worth it for the experience.',
+        date: '2023-11-10'
       }
     ]
   },
   {
     id: '5',
-    title: 'Historic Townhouse in Old City Center',
-    description: 'Charming 18th-century townhouse with modern amenities in the historic district. Featuring original architectural details, a private courtyard garden, and a rooftop terrace with cathedral views. Walking distance to major cultural landmarks.',
+    title: 'Heritage Colonial Mansion in Galle Fort',
+    description: 'Experience living history in this beautifully preserved colonial mansion within UNESCO World Heritage Galle Fort. This spacious property features original architectural details, a private courtyard garden, and is surrounded by boutique shops, cafes, and historic sites.',
     type: 'house',
     location: {
-      city: 'Rome',
-      country: 'Italy',
-      lat: 41.902782,
-      lng: 12.496366,
+      city: 'Galle',
+      country: 'Sri Lanka',
+      lat: 6.0328,
+      lng: 80.2167,
     },
     host: {
       id: 'h5',
-      name: 'Marco',
+      name: 'Ashan',
       image: 'https://randomuser.me/api/portraits/men/53.jpg',
       joinDate: '2018-11-12',
       isSuperhost: true,
@@ -384,10 +380,10 @@ export const properties: PropertyListing[] = [
     images: [
       'https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1574739782594-db4ead022697?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
       'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ],
-    price: 430,
+    price: 195,
     currency: 'USD',
     amenities: [
       'wifi', 
@@ -420,210 +416,197 @@ export const properties: PropertyListing[] = [
       {
         id: 'r6',
         userId: 'u6',
-        userName: 'Thomas',
-        userImage: 'https://randomuser.me/api/portraits/men/19.jpg',
+        userName: 'Sophie',
+        userImage: 'https://randomuser.me/api/portraits/women/19.jpg',
         rating: 5,
-        comment: "This townhouse is a gem in the heart of Rome! The architecture is stunning and Marco has done an amazing job preserving the historic elements while providing all modern comforts. The location couldn't be better.",
-        date: '2023-07-02'
+        comment: 'This mansion is a gem in the heart of Galle Fort! The architecture is stunning and Ashan has done an amazing job preserving the historic elements while providing all modern comforts. The location couldn\'t be better for exploring the fort.',
+        date: '2023-09-02'
       }
-    ]
+    ],
+    featured: true
   },
   {
     id: '6',
-    title: 'Oceanfront Beach House with Private Access',
-    description: 'Modern beach house with direct ocean access and panoramic views. Featuring a spacious open floor plan, floor-to-ceiling windows, multiple decks, and a private path to the beach. Perfect for a family vacation or gathering with friends.',
-    type: 'beachfront',
+    title: 'Luxury Eco Lodge in Sinharaja Rainforest',
+    description: 'Immerse yourself in nature at this sustainable eco-lodge at the edge of Sinharaja Rainforest. This unique property combines luxury and environmental consciousness with spacious rooms, private balconies overlooking the jungle, and guided nature excursions.',
+    type: 'cabin',
     location: {
-      city: 'Santa Barbara',
-      country: 'United States',
-      lat: 34.420831,
-      lng: -119.698189,
+      city: 'Sinharaja',
+      country: 'Sri Lanka',
+      lat: 6.4029,
+      lng: 80.4275,
     },
     host: {
       id: 'h6',
-      name: 'Olivia',
-      image: 'https://randomuser.me/api/portraits/women/21.jpg',
+      name: 'Kumara',
+      image: 'https://randomuser.me/api/portraits/men/21.jpg',
       joinDate: '2019-04-18',
       isSuperhost: true,
     },
     images: [
-      'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1594056141808-afbf95d88b13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80',
+      'https://images.unsplash.com/photo-1542401886-65d6c61db217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1593080358201-08e19ec4500a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1560866625-23e2980fc88b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ],
-    price: 875,
+    price: 155,
     currency: 'USD',
     amenities: [
       'wifi', 
-      'kitchen', 
+      'breakfast', 
       'air-conditioning', 
-      'heating',
-      'washer',
-      'dryer',
-      'tv',
       'free-parking',
-      'bbq-grill',
-      'beachfront',
-      'waterfront'
+      'tv',
+      'pool'
     ],
     capacity: {
-      guests: 8,
-      bedrooms: 4,
-      beds: 5,
-      baths: 3
+      guests: 2,
+      bedrooms: 1,
+      beds: 1,
+      baths: 1
     },
     ratings: {
-      average: 4.96,
-      count: 104,
+      average: 4.98,
+      count: 54,
       cleanliness: 5.0,
       accuracy: 4.9,
-      communication: 4.9,
+      communication: 5.0,
       location: 5.0,
       checkIn: 4.9,
-      value: 4.9
+      value: 5.0
     },
     reviews: [
       {
         id: 'r7',
         userId: 'u7',
-        userName: 'Sophia',
+        userName: 'Jessica',
         userImage: 'https://randomuser.me/api/portraits/women/65.jpg',
         rating: 5,
-        comment: "We had the most magical stay at this beach house! Falling asleep to the sound of waves and waking up to that view was incredible. The house is beautifully designed and had everything we needed. Can't wait to return!",
-        date: '2023-06-28'
+        comment: 'We had the most magical stay at this eco lodge! The rainforest location is incredible - we saw so much wildlife from our balcony. Kumara arranged an excellent guided hike and the food was outstanding. A truly special experience in Sri Lanka.',
+        date: '2023-08-28'
       }
-    ],
-    featured: true
+    ]
   },
   {
     id: '7',
-    title: 'Private Island Retreat with 360° Water Views',
-    description: 'Experience the ultimate exclusivity on this private island property. This luxurious retreat features multiple pavilions, infinity pools, a private dock, and 360-degree water views. Accessible by boat or helicopter, it offers complete privacy and serenity.',
-    type: 'villa',
+    title: 'Traditional Sri Lankan Villa near Sigiriya',
+    description: 'Experience authentic Sri Lankan hospitality in this traditional villa located near the ancient rock fortress of Sigiriya. Set amid rice paddies and tropical gardens, this peaceful retreat offers comfortable rooms, homemade local cuisine, and easy access to cultural sites.',
+    type: 'house',
     location: {
-      city: 'Bora Bora',
-      country: 'French Polynesia',
-      lat: -16.500413,
-      lng: -151.741490,
+      city: 'Sigiriya',
+      country: 'Sri Lanka',
+      lat: 7.9570,
+      lng: 80.7603,
     },
     host: {
       id: 'h7',
-      name: 'Jean-Pierre',
-      image: 'https://randomuser.me/api/portraits/men/54.jpg',
-      joinDate: '2018-06-20',
+      name: 'Priya',
+      image: 'https://randomuser.me/api/portraits/women/54.jpg',
+      joinDate: '2019-06-20',
       isSuperhost: true,
     },
     images: [
-      'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
-      'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1582531156832-8f88d47c3e5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1623051759748-4f629265986a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      'https://images.unsplash.com/photo-1623051799160-6e078594c275?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1583003919955-913fb5a3295c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ],
-    price: 2500,
+    price: 65,
     currency: 'USD',
     amenities: [
       'wifi', 
-      'kitchen', 
-      'air-conditioning', 
-      'pool',
-      'washer',
-      'dryer',
-      'tv',
-      'waterfront',
-      'beachfront'
-    ],
-    capacity: {
-      guests: 8,
-      bedrooms: 4,
-      beds: 4,
-      baths: 4
-    },
-    ratings: {
-      average: 4.99,
-      count: 45,
-      cleanliness: 5.0,
-      accuracy: 5.0,
-      communication: 5.0,
-      location: 5.0,
-      checkIn: 5.0,
-      value: 4.9
-    },
-    reviews: [
-      {
-        id: 'r8',
-        userId: 'u8',
-        userName: 'William',
-        userImage: 'https://randomuser.me/api/portraits/men/7.jpg',
-        rating: 5,
-        comment: "This private island paradise exceeded all expectations. It's truly a once-in-a-lifetime experience. The staff, the accommodations, and the setting are all extraordinary. Worth every penny for a special occasion.",
-        date: '2023-05-15'
-      }
-    ],
-    featured: true
-  },
-  {
-    id: '8',
-    title: 'Designer Penthouse with Rooftop Terrace',
-    description: 'Luxurious penthouse apartment with panoramic city views. This stylish space features high-end designer furnishings, floor-to-ceiling windows, a gourmet kitchen, and a spacious private rooftop terrace perfect for entertaining.',
-    type: 'apartment',
-    location: {
-      city: 'London',
-      country: 'United Kingdom',
-      lat: 51.507351,
-      lng: -0.127758,
-    },
-    host: {
-      id: 'h8',
-      name: 'Charlotte',
-      image: 'https://randomuser.me/api/portraits/women/33.jpg',
-      joinDate: '2019-08-14',
-      isSuperhost: true,
-    },
-    images: [
-      'https://images.unsplash.com/photo-1529408632839-a54952c491e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80',
-      'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    ],
-    price: 550,
-    currency: 'USD',
-    amenities: [
-      'wifi', 
-      'kitchen', 
-      'air-conditioning', 
-      'heating',
-      'washer',
-      'dryer',
-      'tv',
-      'dedicated-workspace',
-      'elevator'
+      'breakfast', 
+      'air-conditioning',
+      'free-parking',
+      'tv'
     ],
     capacity: {
       guests: 4,
       bedrooms: 2,
       beds: 2,
-      baths: 2
+      baths: 1
     },
     ratings: {
-      average: 4.91,
-      count: 68,
+      average: 4.96,
+      count: 65,
       cleanliness: 5.0,
+      accuracy: 5.0,
+      communication: 5.0,
+      location: 4.8,
+      checkIn: 5.0,
+      value: 5.0
+    },
+    reviews: [
+      {
+        id: 'r8',
+        userId: 'u8',
+        userName: 'Thomas',
+        userImage: 'https://randomuser.me/api/portraits/men/7.jpg',
+        rating: 5,
+        comment: 'Our stay with Priya was the highlight of our Sri Lankan trip. The villa is beautiful and the setting is so peaceful. Priya\'s cooking is incredible - the best food we had in Sri Lanka! Perfect location for visiting Sigiriya and Dambulla.',
+        date: '2023-10-15'
+      }
+    ]
+  },
+  {
+    id: '8',
+    title: 'Modern Oceanview Apartment in Negombo',
+    description: 'Contemporary apartment with stunning views of Negombo Beach. This stylish space features modern amenities, a fully equipped kitchen, and a balcony perfect for watching the sunset over the Indian Ocean. Conveniently located near restaurants and shops.',
+    type: 'apartment',
+    location: {
+      city: 'Negombo',
+      country: 'Sri Lanka',
+      lat: 7.2096,
+      lng: 79.8379,
+    },
+    host: {
+      id: 'h8',
+      name: 'Dinesh',
+      image: 'https://randomuser.me/api/portraits/men/33.jpg',
+      joinDate: '2020-08-14',
+      isSuperhost: false,
+    },
+    images: [
+      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      'https://images.unsplash.com/photo-1502672023488-70e25813eb80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    ],
+    price: 80,
+    currency: 'USD',
+    amenities: [
+      'wifi', 
+      'kitchen', 
+      'air-conditioning', 
+      'washer',
+      'tv',
+      'waterfront'
+    ],
+    capacity: {
+      guests: 3,
+      bedrooms: 1,
+      beds: 2,
+      baths: 1
+    },
+    ratings: {
+      average: 4.82,
+      count: 38,
+      cleanliness: 4.9,
       accuracy: 4.8,
-      communication: 4.9,
+      communication: 4.7,
       location: 5.0,
       checkIn: 4.8,
-      value: 4.9
+      value: 4.7
     },
     reviews: [
       {
         id: 'r9',
         userId: 'u9',
-        userName: 'James',
-        userImage: 'https://randomuser.me/api/portraits/men/2.jpg',
+        userName: 'Laura',
+        userImage: 'https://randomuser.me/api/portraits/women/2.jpg',
         rating: 5,
-        comment: "Charlotte's penthouse is spectacular! The interior design is magazine-worthy and the rooftop terrace offers the most amazing views of London. The location is perfect - close to everything. Highly recommend!",
-        date: '2023-06-10'
+        comment: 'Perfect apartment for our first few days in Sri Lanka! Modern, clean and the ocean view is amazing. Great location near the beach and restaurants. Dinesh was very helpful with airport transfers and local recommendations.',
+        date: '2023-11-10'
       }
     ]
   }
@@ -639,21 +622,15 @@ export type CategoryItem = {
 export const categories: CategoryItem[] = [
   {
     id: 'beachfront',
-    label: 'Beachfront',
+    label: 'Beaches',
     icon: '🏖️',
-    description: 'Properties located directly on the beach or coastline'
+    description: 'Properties located directly on the beautiful Sri Lankan beaches'
   },
   {
     id: 'amazing-views',
     label: 'Amazing views',
     icon: '🏞️',
-    description: 'Properties with exceptional views of landscapes or cityscapes'
-  },
-  {
-    id: 'design',
-    label: 'Design',
-    icon: '🏛️',
-    description: 'Architecturally significant or uniquely designed properties'
+    description: 'Properties with exceptional views of Sri Lanka\'s landscapes'
   },
   {
     id: 'countryside',
@@ -663,9 +640,9 @@ export const categories: CategoryItem[] = [
   },
   {
     id: 'mansions',
-    label: 'Mansions',
-    icon: '🏰',
-    description: 'Large, luxurious residences with premium features'
+    label: 'Colonial Homes',
+    icon: '🏛️',
+    description: 'Historic colonial properties with elegant architecture'
   },
   {
     id: 'luxury',
@@ -677,24 +654,30 @@ export const categories: CategoryItem[] = [
     id: 'tropical',
     label: 'Tropical',
     icon: '🌴',
-    description: 'Properties in warm, exotic locations with lush vegetation'
+    description: 'Properties in lush tropical settings'
   },
   {
     id: 'cabins',
-    label: 'Cabins',
-    icon: '🌲',
-    description: 'Cozy wooden homes typically in forest or mountain settings'
+    label: 'Mountain Retreats',
+    icon: '⛰️',
+    description: 'Cozy properties in Sri Lanka\'s hill country'
   },
   {
-    id: 'skiing',
-    label: 'Skiing',
-    icon: '⛷️',
-    description: 'Properties with easy access to ski slopes or winter sports'
+    id: 'design',
+    label: 'Design',
+    icon: '🎨',
+    description: 'Architecturally significant or uniquely designed properties'
   },
   {
     id: 'historic',
-    label: 'Historic',
-    icon: '🏛️',
-    description: 'Properties with historical significance or period features'
+    label: 'Heritage',
+    icon: '🏰',
+    description: 'Properties with cultural or historical significance'
+  },
+  {
+    id: 'villa',
+    label: 'Villas',
+    icon: '🏡',
+    description: 'Luxurious private villas for the perfect getaway'
   }
 ];

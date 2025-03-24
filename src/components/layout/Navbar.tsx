@@ -1,100 +1,312 @@
 
 import { useState, useEffect } from 'react';
-import { Heart, Search, Menu, X, Globe, User } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Search, MapPin, User, Menu, X } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import useMobile from '@/hooks/use-mobile';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Track scrolling to change navbar style
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isMobile = useMobile();
+  const { toast } = useToast();
+  
+  const [scrolled, setScrolled] = useState(false);
+  const [searchLocation, setSearchLocation] = useState('');
+  const [guests, setGuests] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchBarOpen, setSearchBarOpen] = useState(false);
+  
+  // Check if on homepage
+  const isHomePage = location.pathname === '/';
+  
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
       }
     };
-
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+  
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create search params
+    const searchParams = new URLSearchParams();
+    if (searchLocation) searchParams.set('location', searchLocation);
+    if (guests) searchParams.set('guests', guests);
+    
+    // Redirect to search page with params
+    navigate({
+      pathname: '/search',
+      search: searchParams.toString()
+    });
+    
+    // Close search bar if on mobile
+    if (isMobile) {
+      setSearchBarOpen(false);
+    }
+  };
+  
+  const handleUserMenuClick = () => {
+    if (!menuOpen) {
+      setMenuOpen(true);
+    } else {
+      setMenuOpen(false);
+    }
+  };
+  
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' 
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-200 ${
+        scrolled ? 'shadow-md' : 'shadow-sm'
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <div className="relative flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1000 1000"
-                className="w-8 h-8 text-airbnb-primary fill-current"
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <svg 
+                className="w-8 h-8 text-airbnb-primary"
+                viewBox="0 0 32 32" 
+                xmlns="http://www.w3.org/2000/svg" 
+                aria-hidden="true" 
+                role="presentation" 
+                focusable="false"
+                fill="currentColor"
               >
-                <path d="M499.9 237.8c-73.9 0-133.9 60-133.9 133.9 0 73.9 60 133.9 133.9 133.9 73.9 0 133.9-60 133.9-133.9 0-73.9-60-133.9-133.9-133.9zm0 227.8c-51.8 0-93.9-42.1-93.9-93.9 0-51.8 42.1-93.9 93.9-93.9 51.8 0 93.9 42.1 93.9 93.9 0 51.8-42.1 93.9-93.9 93.9z" />
-                <path d="M499.9 128.9c-134.2 0-243.9 109.7-243.9 243.9 0 51.4 15.9 99.1 43.1 138.4l.9 1.2 9.9 11.4c35.6 40.3 82.8 69.1 136.1 82.7 17.2 4.3 34.9 6.5 53 6.5 15.9 0 31.5-1.8 46.5-5.2 55.2-12.5 104.2-41.5 140.7-83l.5-.6.3-.4 10.3-11.8c27.2-39.4 43.1-87.1 43.1-138.4.9-135.1-108.8-244.7-243-244.7zm173.9 361.9l-8.3 9.3-.5.6c-31.2 35.4-72.8 60-120.2 70.9-12.5 2.8-25.4 4.3-38.4 4.3-14.6 0-29.2-1.8-43.4-5.2-45.8-11.7-86.4-36.8-117.1-71.7l-8.6-9.9c-22.9-33.1-36.5-73-36.5-116.2 0-112.1 91.2-203.9 203.9-203.9s203.9 91.8 203.9 203.9c-.1 43.4-13.7 83.2-36.7 116.2l.9.7z" />
-                <path d="M633.1 789.8c-10.8-27.5-25.4-53.3-43.4-76.5-16.8-21.7-36.5-40.6-58.6-55.8-4.3-3.1-9.3-5.9-13.7-8.9-2.5-1.9-5.2-3.1-7.7-4.9-11.7-6.5-24.1-12.1-36.8-16.5-5.5-1.8-11.1-3.7-16.8-4.9-5.9-1.2-11.7-2.8-17.7-3.7-42.4-7.1-87.3 1.5-125.1 22-37.8 20.8-69.6 55.2-87.3 94.6-4.6 10.2-8.3 20.8-10.8 31.2-2.5 10.8-3.7 21.7-4.3 32.5-.9 21.7 1.5 43.1 8.3 64 4.9 15.2 12.1 29.9 21.7 43.1 6.2 8.9 12.7 17.7 19.8 25.7 6.2 6.8 12.1 13.7 18.6 20.1 12.5 12.5 26 23.5 40.3 33.4 55.8 38.1 122.3 61.3 189.4 62.5 7.1 0 14.3 0 21.4-.3 3.1 0 6.2-.3 9.3-.3 3.7-.3 7.4-.6 11.1-.9 15.2-1.2 30.5-3.7 45.5-7.4 5.2-1.2 10.5-2.8 15.5-4.3 1.5-.3 2.8-.6 4.3-1.2 4.3-1.2 8.6-2.5 12.7-4 16.5-5.5 32.8-12.5 47.7-21.1 11.1-6.2 21.7-13.4 31.8-21.1 3.1-2.5 6.2-4.9 9.3-7.4 1.9-1.5 3.7-3.1 5.5-4.9.9-.9 1.9-1.5 2.8-2.5 0 0 .3-.3.3-.6 3.1-2.8 6.2-5.9 9.3-9 7.1-6.8 13.7-14.3 19.5-22 12.1-16.2 22.3-34 29.2-53 .9-3.1 1.9-6.2 2.8-9.3 4.9-19.5 7.1-39.3 6.2-59.5-3.5-47.1-23.9-91.8-56.1-124.8zM499.9 959.4c-5.5-.3-11.1-.6-16.5-1.2-11.7-1.2-23.5-3.1-34.9-5.9-.9-.3-1.9-.3-2.8-.6-7.4-1.9-14.9-4-22.3-6.5-38.1-12.5-74-33.4-102.8-61.3-5.2-4.9-10.2-9.9-14.9-15.2-11.1-12.1-21.1-25.1-28.9-39.6-8.3-15.2-13.7-32.1-15.5-48.9-1.5-16.5 0-33.4 4.6-50 1.2-4.3 2.8-8.6 4.3-12.7 1.5-4 3.4-8 5.2-11.7 8.3-15.9 19.5-30.2 33.4-41.2 12.1-9.6 26-16.5 40.3-20.1 10.8-2.8 22-3.7 33.1-2.8 1.5 0 3.1 0 4.6.3 1.5 0 3.1.3 4.6.3 5.2.6 10.2 1.5 15.2 2.8 19.5 4.6 38.4 13.4 54.3 26.6 6.5 5.5 12.5 11.4 18 17.7 2.5 2.8 4.9 5.9 7.1 9 1.2 1.5 2.5 3.1 3.7 4.6 1.5 1.9 3.1 4 4.3 6.2 7.1 11.1 13.4 23.2 19.5 34.9 6.5 12.7 12.7 25.7 20.4 37.8 2.8 4.3 5.9 8.3 9.3 12.1 3.4 3.7 7.4 6.8 11.7 9.6 16.5 10.8 37.1 14.3 56.1 8.9 12.7-3.7 24.5-10.8 32.8-21.7 6.2-7.7 10.5-16.5 14.3-25.4 0 0 0-.3.3-.3 0 0 0-.3.3-.3 4.9-13.4 9.6-26.6 14.3-39.6.3-.9.6-1.9.9-2.8.6-1.2.9-2.5 1.5-3.7 3.7-7.4 7.1-14.9 9.9-22.6 1.9-4.9 3.4-10.2 4.9-15.2.9-3.4 1.9-6.8 2.5-10.2.6-2.8 1.2-5.5 1.5-8.3.6-3.7 1.2-7.7 1.5-11.7 1.5-14.9 1.2-30.2-2.5-45.2-1.9-7.4-4.3-14.9-7.7-22.3-4.9-11.1-11.4-21.7-19.8-30.8-12.5-13.7-28.5-24.5-45.5-31.2-8.3-3.1-16.8-5.5-25.7-6.5-4.3-.6-8.6-1.2-13-1.2-2.2 0-4.3-.3-6.5-.3-18-.6-36.2 3.1-52.7 10.5-9.3 4-18 9.3-25.7 15.5 0 0-.3.3-.6.3-3.1 2.5-6.2 5.2-9 8-2.8 2.8-5.5 5.9-8 9 0 0-.3.3-.3.3-2.5 3.1-4.9 6.2-7.1 9.3-5.5 8-10.2 16.5-13.7 25.4-4 9.6-6.8 19.8-8.6 30.5-.6 3.7-1.2 7.4-1.5 11.1-.3 3.1-.6 6.5-.6 9.6 0 2.8 0 5.5.3 8.3 0 4.6.6 9 1.2 13.4.3 2.2.6 4.3.9 6.5.3 2.5.9 4.9 1.5 7.4 1.9 8.9 4.6 17.7 8.3 26.3 3.1 7.4 6.8 14.6 11.1 21.7 3.1 5.2 6.5 10.2 10.5 15.2 1.9 2.5 4 4.9 6.2 7.4 2.2 2.5 4.3 4.9 6.8 7.1 4.9 4.9 10.2 9.6 16.5 14.3 11.4 8.6 24.5 15.9 37.8 20.4 7.1 2.5 14.3 4 21.7 5.5 4 .6 8 1.2 12.1 1.5 2.5.3 5.2.3 7.7.3h.3c1.5 0 2.8 0 4.3-.3 3.1 0 6.2-.3 9.3-.6 17.7-1.5 34.9-5.9 51.1-12.5 17.4-7.4 33.7-17.7 47.1-31.5 9.9-9.9 18-21.4 24.1-34 9.6-19.8 14.3-41.5 14.3-64 0-9.9-1.2-19.8-2.8-29.6-.3-1.2-.3-2.5-.6-3.7-.3-1.5-.6-3.1-.9-4.6-.9-4.9-2.2-9.9-3.4-14.9-1.2-4.9-2.8-9.6-4.3-14.3-1.5-4.6-3.4-9.3-5.2-13.7-1.9-4.3-3.7-8.6-5.9-12.7-2.2-4-4.3-8-6.5-11.7-2.5-3.7-4.6-7.4-7.1-10.8-7.4-10.5-15.5-20.4-23.8-29.9-.3-.3-.6-.9-.9-1.2-1.5-1.5-2.8-3.1-4.3-4.6-2.5-2.8-5.2-5.5-7.7-8-3.4-3.4-6.8-6.8-10.5-9.9-1.9-1.5-3.7-3.1-5.5-4.6-2.2-1.5-4.3-3.1-6.5-4.6-10.2-6.5-21.1-12.5-32.5-17.4-5.9-2.5-12.1-4.9-18.6-6.8-6.5-2.2-13-3.7-19.8-5.2-3.4-.9-7.1-1.5-10.8-2.2-3.7-.6-7.4-1.2-11.1-1.5-3.7-.6-7.4-.9-11.1-1.2-3.7-.3-7.7-.6-11.7-.6h-5.9c-5.9 0-12.1.3-18 .9-11.1.9-22.3 2.8-33.1 5.5-21.7 5.2-42.4 14-61.3 25.7-13.7 8.6-26.6 18.3-38.1 29.6-.6.6-1.2 1.2-1.9 1.9-1.5 1.5-3.1 3.1-4.6 4.6-3.1 3.1-6.2 6.5-9 9.9-1.5 1.5-2.8 3.4-4.3 4.9-1.5 1.9-3.1 3.7-4.6 5.5-10.8 13.7-19.8 28.9-26.3 45.2-2.2 5.2-4 10.5-5.9 15.9-1.5 4.9-3.1 9.9-4.3 14.9-2.5 10.5-4.3 21.1-5.2 32.1-.6 7.4-.9 14.9-.6 22.3.3 7.4.9 14.9 1.9 22.3 2.5 18 7.4 35.9 14.6 52.4 7.1 16.5 16.2 32.5 27.2 47.1 8.6 11.4 18 22 28.5 31.8 14.9 13.7 31.5 25.4 49.2 35 13.4 7.1 27.2 13.4 41.5 18 7.1 2.5 14.3 4.3 21.7 6.2 7.4 1.9 14.9 3.1 22.3 4.3 14.9 2.2 29.9 3.4 44.9 3.4h3.4c9.9 0 19.8-.6 29.6-1.9 4.9-.6 9.9-1.2 14.6-2.2 2.5-.3 4.9-.9 7.4-1.2 2.8-.6 5.5-1.2 8.3-1.5 5.5-1.2 10.8-2.5 16.2-4 1.5-.3 2.8-.6 4.3-.9 2.8-.6 5.5-1.5 8.3-2.2 11.1-3.1 22-7.1 32.8-11.4s21.1-9.6 31.2-15.5c10.2-5.9 19.8-12.5 29.2-19.5 4.6-3.7 9.3-7.4 13.7-11.1 4.3-4 8.6-8 12.7-12.1 4.3-4.3 8.3-8.6 12.1-13.4 2.8-3.1 5.5-6.5 8-9.9 2.8-3.4 5.2-6.8 7.7-10.5 2.5-3.7 4.9-7.7 7.1-11.7 2.5-4 4.6-8.3 6.8-12.7 2.2-4.3 4.3-8.6 6.2-13 1.9-4.6 3.7-9 5.2-13.7 1.5-4.6 3.1-9.3 4.3-14 1.2-4.6 2.5-9.3 3.4-14 .9-4.9 1.9-9.9 2.5-14.9.6-4.9 1.2-9.9 1.5-14.9.3-4.9.6-9.9.6-15.2.3-10.2-.3-20.4-1.9-30.5-1.2-10.2-3.1-20.4-5.9-30.2-2.8-9.9-6.2-19.5-10.2-28.9-4.3-9.3-9-18.6-14.6-27.2-4.6-7.7-9.6-14.9-14.9-22-2.8-3.7-5.9-7.4-9-10.8-3.1-3.4-6.2-6.8-9.3-9.9-12.7-12.7-26.6-24.1-41.2-33.7-49.5-32.5-108.4-46.5-166.1-41.5-30.8 2.8-61 11.1-89.1 24.5-16.2 7.7-31.8 17.4-46.1 28.5-14.3 11.1-27.5 24.1-38.7 38.4-5.2 6.5-9.9 13.4-14.3 20.4-4.6 7.1-8.6 14.6-12.1 22.3-7.1 15.5-12.5 31.8-15.9 48.3-3.4 16.5-4.9 33.7-4.3 50.8.6 17.1 3.1 34.3 7.4 50.8 4.3 16.5 10.5 32.5 18.6 47.4 8 14.9 17.7 28.9 28.9 41.5 11.1 12.7 23.8 24.1 37.5 34.3 41.2 30.5 91.5 47.7 142.9 48.6l5.2.3c1.5-.1 3.4-.1 5.2-.1z" />
+                <path d="M16 1c2.008 0 3.463.963 4.751 3.269l.533 1.025c1.954 3.83 6.114 12.54 7.1 14.836l.145.353c.667 1.591.91 2.472.96 3.396l.01.415.001.228c0 4.062-2.877 6.478-6.357 6.478-2.224 0-4.556-1.258-6.709-3.386l-.257-.26-.172-.179h-.011l-.176.185c-2.044 2.1-4.267 3.42-6.414 3.615l-.28.019-.267.006C5.377 31 2.5 28.584 2.5 24.522l.005-.469c.026-.928.23-1.768.83-3.244l.216-.524c.966-2.298 6.083-12.989 7.707-16.034C12.537 1.963 13.992 1 16 1zm0 2c-1.239 0-2.053.539-2.987 2.21l-.523 1.008c-1.926 3.776-6.06 12.43-7.031 14.692l-.345.836c-.427 1.071-.573 1.655-.605 2.24l-.009.33v.206c0 2.329 1.607 3.9 3.543 3.9 1.512 0 3.443-.92 5.438-3.153l.667-.702.667.701c2.075 2.153 4.02 3.156 5.445 3.156 1.936 0 3.543-1.571 3.543-3.9v-.209c-.015-.958-.196-1.64-.792-3.068l-.291-.71c-.994-2.3-5.094-10.891-7.039-14.703l-.516-.997C18.053 3.539 17.24 3 16 3zm-4.938 16.975c0 2.314 1.901 4.207 4.237 4.207 2.337 0 4.238-1.894 4.238-4.207 0-2.314-1.901-4.208-4.238-4.208-2.336 0-4.237 1.894-4.237 4.208z"></path>
               </svg>
-              <span className="ml-2 text-xl font-semibold text-airbnb-primary">
-                airbnb
+              <span className="text-xl font-bold ml-2 hidden md:inline text-airbnb-primary">
+                sribnb
               </span>
-            </div>
-          </Link>
-
-          {/* Search Bar */}
-          <div className={`hidden md:flex items-center justify-center max-w-md ${
-            isScrolled ? 'bg-white' : 'bg-white shadow-sm'
-          } rounded-full border border-gray-200 hover:shadow-md transition-all duration-300 py-3 px-6`}>
-            <button className="text-sm font-medium px-3 border-r border-gray-300">Anywhere</button>
-            <button className="text-sm font-medium px-3 border-r border-gray-300">Any week</button>
-            <button className="text-sm font-normal text-gray-500 px-3">Add guests</button>
-            <button className="ml-2 bg-airbnb-primary p-2 rounded-full text-white flex items-center justify-center">
-              <Search size={16} />
+            </Link>
+          </div>
+          
+          {/* Search bar - Desktop */}
+          <div className={`hidden md:block relative z-10 ${isHomePage ? 'flex-1 max-w-2xl mx-8' : 'ml-4'}`}>
+            <form onSubmit={handleSearch} className="relative">
+              <div className="flex items-center border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="relative flex-1 px-6 py-2">
+                  <input
+                    type="text"
+                    placeholder="Search destinations in Sri Lanka"
+                    className="w-full bg-transparent border-none focus:outline-none text-sm"
+                    value={searchLocation}
+                    onChange={(e) => setSearchLocation(e.target.value)}
+                  />
+                  {searchLocation && (
+                    <button 
+                      type="button" 
+                      className="absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      onClick={() => setSearchLocation('')}
+                    >
+                      <X size={16} />
+                    </button>
+                  )}
+                </div>
+                
+                <div className="border-l border-gray-200 px-6 py-2">
+                  <input
+                    type="number"
+                    placeholder="Guests"
+                    className="w-full bg-transparent border-none focus:outline-none text-sm"
+                    min="1"
+                    value={guests}
+                    onChange={(e) => setGuests(e.target.value)}
+                  />
+                </div>
+                
+                <button 
+                  type="submit"
+                  className="bg-airbnb-primary text-white p-3 rounded-full mr-2 hover:bg-airbnb-primary/90 transition-colors"
+                >
+                  <Search size={16} />
+                </button>
+              </div>
+            </form>
+          </div>
+          
+          {/* Mobile search button */}
+          <div className="md:hidden flex-1 flex justify-center">
+            <button 
+              onClick={() => setSearchBarOpen(!searchBarOpen)}
+              className="border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow flex items-center"
+            >
+              <Search size={16} className="mr-2 text-airbnb-primary" />
+              <span className="text-sm">Where to?</span>
             </button>
           </div>
-
-          {/* User Menu */}
-          <div className="flex items-center space-x-4">
-            <button className="hidden md:flex items-center text-sm font-medium rounded-full hover:bg-gray-100 px-4 py-3 transition-colors">
-              <span>Become a Host</span>
-            </button>
-            <button className="hidden md:flex items-center justify-center rounded-full hover:bg-gray-100 p-3 transition-colors">
-              <Globe size={20} />
-            </button>
-            <div className="relative">
-              <button className="flex items-center space-x-2 border border-gray-300 rounded-full p-2 hover:shadow-md transition-all duration-300">
-                <Menu size={16} className="ml-1" />
-                <div className="bg-gray-500 text-white rounded-full p-0.5">
-                  <User size={20} />
+          
+          {/* User menu */}
+          <div className="relative flex items-center">
+            <Button 
+              variant="outline"
+              className="rounded-full p-3 border-gray-200"
+              onClick={() => toast({
+                title: "Coming soon",
+                description: "The wishlist feature will be available soon!",
+              })}
+            >
+              <svg 
+                className="w-5 h-5"
+                viewBox="0 0 32 32" 
+                xmlns="http://www.w3.org/2000/svg" 
+                aria-hidden="true" 
+                role="presentation" 
+                focusable="false"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+              </svg>
+            </Button>
+            
+            <div className="ml-2">
+              <button 
+                onClick={handleUserMenuClick}
+                className="flex items-center border border-gray-200 rounded-full p-1 hover:shadow-md transition-shadow"
+              >
+                <Menu size={16} className="mr-2 ml-2" />
+                <div className="bg-gray-500 text-white rounded-full p-1 mr-1">
+                  <User size={16} />
                 </div>
               </button>
+              
+              {menuOpen && (
+                <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+                  <div className="py-2">
+                    <Link 
+                      to="#" 
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        toast({
+                          title: "Sign up coming soon",
+                          description: "User registration will be available soon!",
+                        });
+                      }}
+                    >
+                      Sign up
+                    </Link>
+                    <Link 
+                      to="#" 
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        toast({
+                          title: "Login coming soon",
+                          description: "User login will be available soon!",
+                        });
+                      }}
+                    >
+                      Log in
+                    </Link>
+                  </div>
+                  <div className="border-t border-gray-200 py-2">
+                    <Link 
+                      to="#" 
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        toast({
+                          title: "Coming soon",
+                          description: "Host your home feature will be available soon!",
+                        });
+                      }}
+                    >
+                      Host your home
+                    </Link>
+                    <Link 
+                      to="#" 
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        toast({
+                          title: "Help Center",
+                          description: "Help Center will be available soon!",
+                        });
+                      }}
+                    >
+                      Help Center
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex justify-center py-4">
-          <button 
-            className={`flex items-center space-x-3 ${
-              isScrolled ? 'bg-white' : 'bg-white shadow-sm'
-            } rounded-full border border-gray-200 hover:shadow-md transition-all duration-300 py-2 px-4`}
-          >
-            <Search size={16} />
-            <div className="text-left">
-              <div className="text-sm font-medium">Anywhere</div>
-              <div className="text-xs text-gray-500">Any week · Add guests</div>
-            </div>
-          </button>
-        </div>
       </div>
+      
+      {/* Mobile search bar */}
+      {isMobile && searchBarOpen && (
+        <div className="bg-white p-4 shadow-md animate-fade-in">
+          <form onSubmit={handleSearch} className="space-y-4">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <MapPin size={16} className="text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Where are you going?"
+                className="w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-airbnb-primary"
+                value={searchLocation}
+                onChange={(e) => setSearchLocation(e.target.value)}
+              />
+              {searchLocation && (
+                <button 
+                  type="button" 
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  onClick={() => setSearchLocation('')}
+                >
+                  <X size={16} className="text-gray-400" />
+                </button>
+              )}
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Users size={16} className="text-gray-400" />
+              </div>
+              <input
+                type="number"
+                placeholder="How many guests?"
+                className="w-full pl-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-airbnb-primary"
+                min="1"
+                value={guests}
+                onChange={(e) => setGuests(e.target.value)}
+              />
+            </div>
+            
+            <div className="flex items-center justify-between">
+              <button 
+                type="button" 
+                className="text-airbnb-secondary font-medium"
+                onClick={() => setSearchBarOpen(false)}
+              >
+                Cancel
+              </button>
+              
+              <Button 
+                type="submit"
+                className="bg-airbnb-primary hover:bg-airbnb-primary/90"
+              >
+                <Search size={16} className="mr-2" />
+                Search
+              </Button>
+            </div>
+          </form>
+        </div>
+      )}
     </header>
   );
 };
